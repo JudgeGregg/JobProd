@@ -1,0 +1,59 @@
+Tmux
+
+#TODO
+On ne présente plus les avantages de la ligne de commande pour les développeurs
+pressés: légereté, flexiblité toussa.  
+
+Mais la force des interfaces en ligne de commande (ne faire qu'une seule chose
+et la faire bien) amène aussi son lot d'inconvénients: on se retrouve
+rapidement submergé par une multitude de fenêtres, chacune dédiée à une tâche
+spécifique.
+
+#TODO
+Les multiplexeurs de terminaux ont été conçus pour résoudre ce problème: ils
+permettent de regrouper plusieurs fenêtres en une, facilitant le passage de
+l'une à l'autre.
+
+Le multiplexeur le plus connu est incontestablement "screen" (développé par le
+projet GNU depuis 1987)[lien]. Mais plus récemment, un challenger de taille est
+arrivé: il s'agit de "tmux", conçu initialement pour le projet OpenBSD.  Tmux
+est disponible dans les gestionnaires de paquets de la majorité des
+distributions Linux, et il a été porté sous Windows et Mac OS. Son installation
+est donc simple, et d'autant plus rapide qu'il s'agit d'un logiciel très léger.
+
+Voici un exemple d'utilisation de tmux après installation.
+[pic]
+A première vue, l'intérêt de tmux semble limité, mais avant de poursuivre
+Avant de décrire plus avant
+Il est effectivement nécessaire de connaitre les éléments fondamentaux de tmux,
+à savoir les fenêtres (windows), panneaux (panes) et les sessions.
+
+Tmux windows:
+
+Une window utilise tout l'espace disponible sur l'écran. Elle est destinée à
+héberger un ou plusieurs 'panes', qui contiendront chacun une application.
+
+Il est possible de créer une nouvelle fenêtre à l'aide des touches Ctrl+b,
+suivi de c (create). Les fenêtres nouvellement créées prennent le focus et
+lancent un nouveau shell. Elles apparaissent également dans la barre de
+statut de tmux, précédées d'un numéro.
+[pic]
+
+Pour passer d'une fenêtre à l'autre, il suffit d'appuyer sur les touches
+Ctrl+b, suivi du numéro de la fenêtre sélectionnée.
+Les touches Ctrl+b puis w permettent également de lister toutes les fenêtres en
+cours d'utilisation.
+
+Tmux facilite donc grandement la navigation entre les différentes fenêtres, et
+ce d'autant plus que l'utilisateur prend l'habitude d'utiliser régulièrement
+les mêmes applications dans les mêmes fenêtres. Il devient alors possible de
+passer d'une application à une autre en quelques 10e de secondes.
+
+Mais ce n'est pas tout, tmux offre également la possibilité d'afficher
+plusieurs applications dans la même fenêtre, par l'intermédiaire des 'panes'.
+
+Tmux panes
+
+Les panes (ou panneaux, carreaux) permettent de diviser horizontalement ou
+verticalement la fenêtre affichée
+pour 
