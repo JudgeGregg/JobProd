@@ -1,0 +1,112 @@
+VIM
+
+Vim (Vi IMproved) est un éditeur de texte très utilisé dans le monde du développement logiciel.
+Ses principaux atouts sont:
+	- Légereté: Vim est principalement codé en C et en VimL, un langage qui lui est propre.
+	- Modularité: Vim est extensible par le biais de plugins qui améliorent ses fonctionnalités natives, parfois de manière étonnante
+  	(client sql avec dbext par exemple).
+	- Ubiquité: Vim a été porté sur la quasi totalité des OS existants, y compris les plus exotiques tels qu'Amiga ou BeOS.
+	De plus, Vi, le précurseur de Vim est installé par défaut sur de nombreux UNIXes. Un utilisateur de Vim ne sera donc pas dépaysé.
+
+Mais Vim est également connu pour son fonctionnement atypique, voire déroutant. Certains considèrent 
+en effet que la courbe d'apprentissage de Vim est à peu près aussi facile à gravir qu'une falaise sous le blizzard.
+Cela peut paraître exagéré mais force est de reconnaître que Vim n'est pas l'éditeur de texte le plus 'user-friendly' qui soit.
+L'interface est minimaliste et la documentation s'apparente à un grimoire Zoulou, dans la plus pure tradition UNIX. 
+
+Pourtant cette même interface offre une souplesse et une puissance inégalée pour la manipulation de texte, ce qui explique la 
+popularité constante de l'éditeur depuis sa première version, sortie en 1992.
+
+Avant de profiter pleinement de Vim, il est donc necéssaire de passer quelques
+temps à explorer le logiciel pour découvrir ses spécificités, et notamment les
+notions de modes, mots et commandes 'ex'.
+
+
+I Les Modes de Vim.
+
+Vim est un éditeur modal. Un mode correspond à un "état" choisi par l'utilisateur pour accomplir une tâche 
+donnée, telle qu'insérer du texte ou effectuer une recherche. 
+Il est possible de passer d'un état à l'autre par l'intermédiaire de "transitions", à la manière d'une machine de Turing.
+Les modes les plus couramment utilisés sont les suivants:
+
+	- Mode Normal: principalement destiné à la navigation dans le document, à l'aide de raccourcis spécifiques. 
+		       Il s'agit du mode par défault au lancement de Vim.
+	- Mode Insertion: destiné à insérer du texte dans le document, c'est le mode standard de la plupart des éditeurs de texte.
+	- Mode Visuel: destiné à la sélection de blocs de texte, souvent pour effectuer un traitement spécifique par la suite.
+	- Mode Commande: destiné à saisir des commands 'Ex', afin d'effectuer des recherches ou des manipulations de texte avancées.
+
+Cette caractéristique modale est la première spécificité rencontrée par les utilisateurs de Vim (et parfois la dernière)... 
+
+Mais elle offre une souplesse étonnante: il n'est pas necéssaire de maintenir plusieurs touches 
+de contrôle appuyées pour parvenir au résultat souhaité, il suffit de changer le mode de Vim.
+L'édition de texte sous Vim s'apparente donc à une succession d'insertions de
+courte durée, entrecoupée de déplacements effectués en mode Normal. 
+
+Au final, le mode Normal est omniprésent, car il permet de se déplacer de façon très rapide
+sur l'ensemble du document grâce à des raccourcis claviers d'un genre
+particulier: les "mots".
+
+
+II Les Mots de Vim.
+
+En mode Normal, les touches du clavier ne sont pas utilisées pour insérer du
+texte, mais pour effectuer des mouvement ciblés.
+Par exemple, la touche 'w' (word) amène le curseur sur le mot suivant, tandis que la
+touche 'b' (back) permet de revenir au mot précédent. De la même manière, la
+touche 'e' (end) positionne le curseur sur la dernière lettre du mot courant.
+
+Certaines touches permettent également de manipuler le texte, ou d'effectuer une
+transition vers un autre mode de Vim. C'est le cas notamment des touches 'c',
+'d' et 'v', qui permettent respectivement de modifier (change), supprimer
+(delete) ou sélectionner du texte (visual).
+
+Individuellement, ces actions peuvent paraître anecdotiques, mais il
+est possible de les combiner pour obtenir des résultats nettement plus
+intéressants: '2bcw' permet ainsi de revenir au deuxième mot précédent, de le
+supprimer, et de passer en mode Insertion pour le remplacer ('change' étant un
+raccourci pour 'delete' puis 'insert').
+
+Globalement, la 'grammaire' de Vim est très puissante (elle permet également
+d'agir sur des lignes entières ou des balises), et il serait difficile de détailler 
+l'ensemble des functionnalités qu'elle propose. Le grimoire Zoulou décrit plus
+haut peut se réveler d'une grande aide pour décrypter les formules magiques
+récupérées ça et là sur le Web.
+
+
+III L'Ex-mode de Vim.
+
+Les commandes 'Ex' (toutes les commandes commençant par ':') sont une particularité 
+de Vim qui nécessite de connaître les fondamentaux de l'éditeur, notamment les
+deux aspects évoqués précédemment. 
+Ces commandes se présentent sous la forme de briques emboîtables,
+permettant de définir un traitement complexe à effectuer sur le 
+document. 
+A titre d'exemple, la commande
+
+	:g/REGEXP/;?^$?;/^$/w >> vim.txt
+
+permet de trouver toutes les lignes du documentant contenant REGEXP, de 
+sélectionner les paragraphes qui les contiennent, et de 
+copier ces paragraphes dans un fichier vim.txt.
+
+	- :g/REGEXP/: trouver chaque ligne contenant REGEXP.
+	- ;?^$?: remonter jusqu'à la ligne vide précédente (soit le début du
+		  paragraphe).
+	- ;/^$/: descendre jusqu'à la ligne vide suivante (soit la fin du
+		  paragraphe).
+	- w >> vim.txt: écrire la sélection à la fin du fichier vim.txt.
+
+Les commandes 'Ex' allient puissance et souplesse, mais elles sont assez
+difficiles à utiliser. Elles demandent un apprentissage particulier, mais
+elles permettent d'effectuer très rapidement des traitements qui sur d'autres
+éditeurs necéssiteraient de laborieuses phases de scrolling/copier-coller.
+
+
+Les trois notions détaillées dans cet article (modes, mots, commandes-ex) ne
+sont que la partie émergée de l'iceberg Vim. Cette éditeur possède de nombreuses
+autres facettes (macros, scripting) qu'il serait impossible de présenter en
+quelques lignes. Heureusement, le Web regorge de sites et autres wikis consacrés
+à Vim, qui permettent à qui le souhaite d'approfondir ses connaissances sur le
+sujet.
+Citons entres autres vimcasts, vimgolf, et vim adventures, qui montrent à quel
+point la communauté de 'Vimmers' est active et originale, à la mesure de leur
+éditeur de texte favori.
