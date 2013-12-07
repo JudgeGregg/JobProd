@@ -16,13 +16,14 @@ l'une à l'autre.
 
 Le multiplexeur le plus connu est incontestablement "screen" (développé par le
 projet GNU depuis 1987)[lien]. Mais plus récemment, un challenger de taille est
-arrivé: il s'agit de "tmux", conçu initialement pour le projet OpenBSD.  Tmux
+arrivé: il s'agit de "tmux", conçu initialement pour le projet OpenBSD[lien]. Tmux
 est disponible dans les gestionnaires de paquets de la majorité des
 distributions Linux, et il a été porté sous Windows et Mac OS. Son installation
 est donc simple, et d'autant plus rapide qu'il s'agit d'un logiciel très léger.
 
 Voici un exemple d'utilisation de tmux après installation.
 [pic]
+#TODO
 A première vue, l'intérêt de tmux semble limité, mais avant de poursuivre
 Avant de décrire plus avant
 Il est effectivement nécessaire de connaitre les éléments fondamentaux de tmux,
@@ -30,13 +31,14 @@ Il est effectivement nécessaire de connaitre les éléments fondamentaux de tmu
 
 Tmux windows:
 
-Une window utilise tout l'espace disponible sur l'écran. Elle est destinée à
-héberger un ou plusieurs 'panes', qui contiendront chacun une application.
+Une fenêtre utilise tout l'espace disponible sur l'écran. Par défaut, une
+fenêtre contient une interface en ligne de commande (un shell), qui se comporte
+de la même manière que n'importe quel terminal.  
 
 Il est possible de créer une nouvelle fenêtre à l'aide des touches Ctrl+b,
 suivi de c (create). Les fenêtres nouvellement créées prennent le focus et
-lancent un nouveau shell. Elles apparaissent également dans la barre de
-statut de tmux, précédées d'un numéro.
+lancent un nouveau shell. Elles apparaissent également dans la barre de statut
+de tmux, précédées d'un numéro.
 [pic]
 
 Pour passer d'une fenêtre à l'autre, il suffit d'appuyer sur les touches
@@ -44,16 +46,71 @@ Ctrl+b, suivi du numéro de la fenêtre sélectionnée.
 Les touches Ctrl+b puis w permettent également de lister toutes les fenêtres en
 cours d'utilisation.
 
+#TODO
 Tmux facilite donc grandement la navigation entre les différentes fenêtres, et
 ce d'autant plus que l'utilisateur prend l'habitude d'utiliser régulièrement
 les mêmes applications dans les mêmes fenêtres. Il devient alors possible de
-passer d'une application à une autre en quelques 10e de secondes.
+passer de l'une à l'autre en quelques dixièmes de secondes.
 
 Mais ce n'est pas tout, tmux offre également la possibilité d'afficher
 plusieurs applications dans la même fenêtre, par l'intermédiaire des 'panes'.
 
-Tmux panes
+Tmux panes:
 
-Les panes (ou panneaux, carreaux) permettent de diviser horizontalement ou
-verticalement la fenêtre affichée
-pour 
+Les panes (panneaux, carreaux) sont utilisés pour diviser horizontalement ou
+verticalement la fenêtre en cours d'utilisation, afin d'afficher plusieurs
+applications simultanément. Cela permet par exemple d'éditer du texte dans le
+panneau supérieur, tout en lisant un fichier de log dans le panneau inférieur.
+[pic]
+
+La création d'un panneau vertical s'effectue à l'aide des touches Crtl+b puis %
+(Ctrl+b, suivi de " pour une division horizontale). De la même manière que pour
+les fenêtres, tmux lance un shell dans le panneau nouvellement créé, et ce
+dernier prend le focus. Pour fermer un panneau(ou une fenêtre), il suffit de
+s'en déconnecter (Ctrl+D sous Linux).
+
+Les panneaux ne sont pas liés de manière définitive à une fenêtre: il est
+possible de déplacer un panneau vers une fenêtre existante et même d'en créer
+une nouvelle, spécifiquement dédiée à ce panneau.
+
+#TODO
+L'intégralité des commandes disponibles est décrite dans la documentation de 
+tmux, qui, en digne membre du projet OpenBSD, est packagé avec un manuel aussi
+épais que l'intégrale des oeuvres de Victor Hugo. Vous voilà donc prévenus!
+#TODO
+
+Tmux sessions:
+
+L'ensemble des fenêtres et panneaux associés constitue ce que l'on appelle une
+session. Tmux peut héberger plusieurs sessions en parallèle et l'utilisateur
+choisit de passer de l'une à l'autre en fonctions de ses projets.
+La touche Ctrl+b suivie de d (detach) permet de passer tmux en arrière-plan, et
+de commencer une nouvelle session. Il est également possible de donner un nom à
+une session, afin de la retrouver plus facilement.
+
+#TODO 
+Les sessions sont particulièrement pratiques pour partager son écran avec un
+autre utilisateur (remote pair programming FTW!) et pour assurer la persistence
+des fenêtres hébergés par tmux. Ainsi, en cas de déconnexion impromptue, tmux
+détache la session du terminal et la place en arrière-plan.  Lorsque
+l'utilisateur se reconnecte, il lui suffit de se réattacher (tmux attach) à la
+session pour retrouver ses applications. 
+
+
+En conclusion tmux (ou tout autre multiplexeur) est aujourd'hui un outil
+essentiel pour de nombreux développeurs. L'encapsulation des applications dans un
+assemblage type poupées russes (panneaux -> fenêtres -> sessions) est
+extrèmement pratique pour passer rapidement d'un contexte à un autre.
+De plus, tmux est suffisamment flexible pour que chaque utilisateur puisse en
+tirer le maximum. A titre d'exemple, le plugin 'vimux'[lien] permet de
+contrôler tmux directement à partir de vim. Bien que la prise en main de tmux
+puisse demander quelques heures d'efforts, le jeu en vaut largement la
+chandelle, particulièrement sur le long terme.
+
+
+NB: La majorité des commandes de tmux sont préfixées par Ctrl+b. Néanmoins de
+nombreux utilisateurs choisissent de remplacer Ctrl+b par Ctrl+a[lien], d'une
+part pour conserver le préfixe de 'screen', et d'autre part pour éviter à long
+terme les effets 'syndrôme du canal carpien'! Bien évidemment, les utilisateurs
+d'Emacs ne verront pas d'inconvénient à utiliser Ctrl+b, mais c'est une autre
+histoire...
