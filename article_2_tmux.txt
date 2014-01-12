@@ -1,6 +1,5 @@
 Tmux
 
-#TODO
 On ne présente plus les avantages de la ligne de commande pour les développeurs
 pressés: légereté, flexiblité et efficacité en sont les maîtres mots.  
 
@@ -101,11 +100,19 @@ tirer le maximum. A titre d'exemple, le plugin 'vimux'[lien] permet de
 contrôler tmux directement à partir de vim. Bien que la prise en main de tmux
 puisse demander quelques heures d'efforts, le jeu en vaut largement la
 chandelle, particulièrement sur le long terme.
+[pic]
 
 
-NB: La majorité des commandes de tmux sont préfixées par Ctrl+b. Néanmoins de
+*: La majorité des commandes de tmux sont préfixées par Ctrl+b. Néanmoins de
 nombreux utilisateurs choisissent de remplacer Ctrl+b par Ctrl+a[lien], d'une
 part pour conserver le préfixe de 'screen', et d'autre part pour éviter à long
 terme les effets 'syndrôme du canal carpien'! Bien évidemment, les utilisateurs
 d'Emacs ne verront pas d'inconvénient à utiliser Ctrl+b, mais c'est une autre
 histoire...
+
+
+Liens:
+screen: https://www.gnu.org/software/screen/
+tmux: http://tmux.sourceforge.net/
+vimux: https://github.com/benmills/vimux
+tmux config: https://github.com/JudgeGregg/dotfiles/blob/master/.tmux.conf
