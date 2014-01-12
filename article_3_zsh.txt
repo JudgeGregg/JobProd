@@ -14,9 +14,6 @@ Il est également possible de créer des scripts shell (ou batch files sur les
 systèmes Microsoft), pour regrouper un ensemble de commandes et les exécuter
 automatiquement à intervalles réguliers. 
 
-TODO: Hybrid!
-TOFIX: Commandes!
-
 Historiquement, la notion de shell est apparue avec le système d'exploitation
 Multics (en 1969), puis a été reprise par les concepteurs d'Unix, Dennis
 Ritchie et Ken Thompson. Depuis, le shell a évolué, au point qu'il en existe de
@@ -33,4 +30,96 @@ shell par défaut d'Unix et Linux, en particulier sur les points suivants:
 - Globbing (trouver des fichiers de manière récursive à l'aide de regexp)
 - Configuration simplifiée 
 
+Ces améliorations ne sont pas spécifiques à zsh: il est ainsi possible de
+configurer bash pour qu'il fonctionne d'une façon très similaire à zsh.
+Mais puisque ces fonctionnalités sont présentes nativement sous zsh (où plus
+simples à configurer), de nombreux utilisateurs préfèrent l'utiliser à la place
+de bash.
+
+La configuration de zsh est définie dans un ensemble de fichiers, souvent
+placés dans le repertoire d'un utilisateur afin que celui-ci puisse y apporter
+les modifications qu'il souhaite sans affecter les autres utilisateurs du
+système.
+
+Parmi ces fichiers, on trouve notamment:
+
+.zprofile -> Utilisé pour les shells de type login.
+.zshrc -> Utilisé pour les shells de type interactif. 
+
+
+Les shells les plus courants sont les shells interactifs. Ils affichent un
+prompt qui permet de saisir une succession de commandes et d'en afficher les
+résultats à l'utilisateur, d'où leur nom.
+
+Les shells de login sont souvent utilisés pour lancer des scripts en simulant
+l'arrivée d'un utilisateur sur le système. Ils contiennent donc des directives
+spécifiques, qui permettent par exemple d'arriver directement dans le
+répertoire d'un utilisateur.
+
+Zsh est un outil très puissant. Pour s'en convaincre, il suffit de lire la
+première page de son imposant manuel:
+
+"Because zsh contains many features, the zsh manual has been split into a 
+number of sections:"
+
+       zsh          Zsh overview (this section)
+       zshroadmap   Informal introduction to the manual
+       zshmisc      Anything not fitting into the other sections
+       zshexpn      Zsh command and parameter expansion
+       zshparam     Zsh parameters
+       zshoptions   Zsh options
+       zshbuiltins  Zsh built-in functions
+       zshzle       Zsh command line editing
+       zshcompwid   Zsh completion widgets
+       zshcompsys   Zsh completion system
+       zshcompctl   Zsh completion control
+       zshmodules   Zsh loadable modules
+       zshcalsys    Zsh built-in calendar functions
+       zshtcpsys    Zsh built-in TCP functions
+       zshzftpsys   Zsh built-in FTP client
+       zshcontrib   Additional zsh functions and utilities
+       zshall       Meta-man page containing all of the above
+
+Bien évidemment, la majorité des utilisateurs ne souhaite pas forcément passer
+ses week-ends à éplucher le manuel de zsh pour en tirer tous ses bénéfices.
+
+C'est pour cette raison qu'est né Oh-My-Zsh.
+
 Oh My Zsh
+
+Oh My Zsh est une collection de plugins et d'astuces qui facilitent grandement
+la configuration et l'utilisation de Zsh.
+Il s'agit d'un projet de Robby Russell, disponible sur Github: 
+
+https://github.com/robbyrussell/oh-my-zsh [1]
+
+Une fois l'installation effectuée, il suffit de définir une liste de plugins à
+utiliser dans son fichier .zshrc, par exemple:
+
+'plugins=(autojump git tmux virtualenv virtualenvwrapper vi-mode)'
+
+autojump -> plugin pour se déplacer dans une arborescence de fichiers.
+git -> raccourcis et aide détaillée pour git.
+tmux -> raccourcis pour tmux.
+virtualenv / virtualenvwrapper -> gestion simplifée des virtualenvs python.
+vi-mode -> raccourcis claviers de vim pour zsh.
+
+La liste complète de plugins est disponible dans le répertoire 'plugins' sur
+Github. Elle contient à l'heure actuelle plusieurs dizaines de plugins, et il
+ya tout lieu de penser qu'elle va continuer de croître.
+
+
+En conclusion, Oh-My-Zsh permet d'exploiter toute la puissance de zsh, qui est
+lui même l'un des shells les plus performants à l'heure actuelle. Cette
+combinaison, simple et puissante, explique probablement pourquoi de nombreux
+développeurs utilisent ces outils. C'est d'autant plus vrai que zsh se révèle
+au final très agréable à utiliser au jour le jour.
+TODO CONCLUDE
+
+En réalité, les shells sont des hybrides, mi-programme, mi-langage de
+programmation. Ce sont les langages de programmation qui permettent de
+concevoir des scripts, à l'aide de structures de contrôle de flux notammentEn
+réalité, les shells sont des hybrides, mi-programme, mi-langage de
+programmation. Ce sont les langages de programmation qui permettent de
+concevoir des scripts, à l'aide de structures de contrôle de flux notamment.
+
