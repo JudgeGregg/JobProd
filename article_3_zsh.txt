@@ -1,0 +1,36 @@
+Le shell est un élément fondamental des systèmes d'exploitation modernes. Il
+s'agit d'un programme particulier, destiné à communiquer avec le noyau de l'OS
+et à lancer d'autres applications.
+
+Il peut se présenter sous forme graphique ou en ligne de commande (par abus de
+langage, le terme shell fait souvent référence au programme en ligne de
+commande).
+
+Le shell facilite l'utilisation du système en fournissant un ensemble de
+commandes (les builtins) qui permettent à l'utilisateur de se déplacer
+dans l'arborescence des fichiers, ou de bénéficier de l'autocomplétion.
+
+Il est également possible de créer des scripts shell (ou batch files sur les
+systèmes Microsoft), pour regrouper un ensemble de commandes et les exécuter
+automatiquement à intervalles réguliers. 
+
+TODO: Hybrid!
+TOFIX: Commandes!
+
+Historiquement, la notion de shell est apparue avec le système d'exploitation
+Multics (en 1969), puis a été reprise par les concepteurs d'Unix, Dennis
+Ritchie et Ken Thompson. Depuis, le shell a évolué, au point qu'il en existe de
+nombreuses implémentations, parfois incompatibles entre elles: sh, bash, czh,
+ksh et zsh, entre autres.
+
+Zsh
+
+Zsh est l'un des shells apparus les plus récemment (1990). Il améliore bash, le
+shell par défaut d'Unix et Linux, en particulier sur les points suivants:
+
+- Rapidité d'exécution
+- Complétion avancée (exécutables, options, noms de fichiers)
+- Globbing (trouver des fichiers de manière récursive à l'aide de regexp)
+- Configuration simplifiée 
+
+Oh My Zsh
