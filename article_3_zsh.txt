@@ -7,12 +7,12 @@ langage, le terme shell fait souvent référence au programme en ligne de
 commande).
 
 Le shell facilite l'utilisation du système en fournissant un ensemble de
-commandes (les builtins) qui permettent à l'utilisateur de se déplacer
+d'outils (les builtins) qui permettent à l'utilisateur de se déplacer
 dans l'arborescence des fichiers, ou de bénéficier de l'autocomplétion.
 
 Il est également possible de créer des scripts shell (ou batch files sur les
-systèmes Microsoft), pour regrouper un ensemble de commandes et les exécuter
-automatiquement à intervalles réguliers. 
+systèmes Microsoft), pour regrouper plusieurs instructions et les exécuter
+automatiquement à intervalles réguliers.*
 
 Historiquement, la notion de shell est apparue avec le système d'exploitation
 Multics (en 1969), puis a été reprise par les concepteurs d'Unix, Dennis
@@ -21,6 +21,8 @@ nombreuses implémentations, parfois incompatibles entre elles: sh, bash, czh,
 ksh et zsh, entre autres.
 
 Zsh
+
+http://www.zsh.org/ [1]
 
 Zsh est l'un des shells apparus les plus récemment (1990). Il améliore bash, le
 shell par défaut d'Unix et Linux, en particulier sur les points suivants:
@@ -88,10 +90,10 @@ C'est pour cette raison qu'est né Oh-My-Zsh.
 Oh My Zsh
 
 Oh My Zsh est une collection de plugins et d'astuces qui facilitent grandement
-la configuration et l'utilisation de Zsh.
+la configuration et l'utilisation de zsh.
 Il s'agit d'un projet de Robby Russell, disponible sur Github: 
 
-https://github.com/robbyrussell/oh-my-zsh [1]
+https://github.com/robbyrussell/oh-my-zsh [2]
 
 Une fois l'installation effectuée, il suffit de définir une liste de plugins à
 utiliser dans son fichier .zshrc, par exemple:
@@ -111,15 +113,16 @@ ya tout lieu de penser qu'elle va continuer de croître.
 
 En conclusion, Oh-My-Zsh permet d'exploiter toute la puissance de zsh, qui est
 lui même l'un des shells les plus performants à l'heure actuelle. Cette
-combinaison, simple et puissante, explique probablement pourquoi de nombreux
-développeurs utilisent ces outils. C'est d'autant plus vrai que zsh se révèle
-au final très agréable à utiliser au jour le jour.
-TODO CONCLUDE
+combinaison, simple et efficace, explique probablement pourquoi de nombreux
+développeurs utilisent ces outils. La transition depuis bash s'effectue sans
+accrocs, et zsh devient rapidement indispensable.
 
-En réalité, les shells sont des hybrides, mi-programme, mi-langage de
-programmation. Ce sont les langages de programmation qui permettent de
-concevoir des scripts, à l'aide de structures de contrôle de flux notammentEn
-réalité, les shells sont des hybrides, mi-programme, mi-langage de
-programmation. Ce sont les langages de programmation qui permettent de
+
+*En réalité, les shells sont des hybrides, mi-programme, mi-langage de
+programmation. Ce sont ces langages de programmation qui sont utilisés pour
 concevoir des scripts, à l'aide de structures de contrôle de flux notamment.
 
+
+Liens:
+http://www.zsh.org/ [1]
+https://github.com/robbyrussell/oh-my-zsh [2]
